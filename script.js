@@ -40,9 +40,9 @@ const myLibrary = [
 
 function Book(title, author, pages, read = false) {
 	(this.title = title),
-		(this.author = author),
-		(this.pages = pages),
-		(this.read = read);
+	(this.author = author),
+	(this.pages = pages),
+	(this.read = read);
 }
 
 function displayBooks() {
@@ -54,10 +54,8 @@ function displayBooks() {
                                     <h2 class="title">${title}</h2>
                                     <h3 class="author">${author}</h3>
                                     <div class="buttons">
-                                        <img src="/icons/delete.svg" height="30px" onclick="deleteBook(${index})"/>
-                                        <img src="/icons/${
-																					read ? "read.svg" : "notread.svg"
-																				}" height="30px" 
+                                        <img src="./icons/delete.svg" height="30px" onclick="deleteBook(${index})"/>
+                                        <img src="./icons/${read ? "read.svg" : "notread.svg"}" height="30px" 
                                                                                 onclick="markRead(${index})"/>
                                     </div>
                                   </div>`;
