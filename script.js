@@ -1,4 +1,31 @@
 const bookDisplay = document.querySelector(".book-display");
+const dialogElem = document.getElementById("dialog");
+const showDialogBtn = document.querySelector(".show-dialog");
+const addBookBtn = document.querySelector(".add-book");
+
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pagecount = document.getElementById("pagecount");
+
+showDialogBtn.addEventListener("click", () => {
+	dialogElem.showModal();
+});
+
+addBookBtn.addEventListener("click", (event) => {
+	event.preventDefault();
+    
+    if (
+		title.validity.valid &&
+		author.validity.valid &&
+		pagecount.validity.valid
+	) {
+		addBookToLibrary();
+        dialogElem.close()
+	} else {
+        alert("Please correct your book's information!")
+    }
+	
+});
 
 const myLibrary = [
 	new Book("War and Peace", "Leo Tolstoy", 1296, false),
@@ -30,7 +57,8 @@ function displayBooks() {
                                         <img src="/icons/delete.svg" height="30px" onclick="deleteBook(${index})"/>
                                         <img src="/icons/${
 																					read ? "read.svg" : "notread.svg"
-																				}" height="30px" onclick="markRead(${index})"/>
+																				}" height="30px" 
+                                                                                onclick="markRead(${index})"/>
                                     </div>
                                   </div>`;
 	}
@@ -43,9 +71,13 @@ function deleteBook(index) {
 
 function markRead(index) {
 	myLibrary[index].read = !myLibrary[index].read;
-    displayBooks();
+	displayBooks();
 }
 
-function addBookToLibrary() {}
+function addBookToLibrary() {
+    let newBook = new Book(title.value, author.value, pagecount.value)
+    myLibrary.push(newBook)
+    displayBooks();
+}
 
 displayBooks();

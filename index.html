@@ -7,7 +7,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
 			rel="stylesheet"
 		/>
 		<script src="script.js" defer></script>
@@ -15,7 +15,28 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="book-input"></div>
+			<div class="book-input">
+				<img
+					class="show-dialog"
+					src="icons/addbook.svg"
+					width="100px"
+					alt="add book"
+				/>
+				<dialog id="dialog">
+					<form>
+						<label for="title">Title</label>
+						<input type="text" name="title" id="title" required />
+
+						<label for="author">Author</label>
+						<input type="text" name="author" id="author" required />
+
+						<label for="pagecount">Page Count</label>
+						<input type="number" name="pagecount" id="pagecount" required />
+
+						<button class="add-book">Add Book</button>
+					</form>
+				</dialog>
+			</div>
 			<div class="book-display"></div>
 		</div>
 	</body>
