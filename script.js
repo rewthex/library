@@ -50,6 +50,7 @@ function displayBooks() {
 	bookDisplay.innerHTML = "";
 	for (const [index, book] of myLibrary.entries()) {
 		const { title, author, pages, read } = book;
+		
 		bookDisplay.innerHTML += `<div class="book">
                                     <div class="book-line"></div>
                                     <h2 class="title">${title}</h2>
