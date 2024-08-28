@@ -13,19 +13,27 @@ showDialogBtn.addEventListener("click", () => {
 
 addBookBtn.addEventListener("click", (event) => {
 	event.preventDefault();
-    
-    if (
+
+	if (
 		title.validity.valid &&
 		author.validity.valid &&
 		pagecount.validity.valid
 	) {
 		addBookToLibrary();
-        dialogElem.close()
+		dialogElem.close();
 	} else {
-        alert("Please correct your book's information!")
-    }
-	
+		alert("Please correct your book's information!");
+	}
 });
+
+class Book {
+	constructor(title, author, pages, read = false) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+	}
+}
 
 const myLibrary = [
 	new Book("War and Peace", "Leo Tolstoy", 1296, false),
@@ -38,13 +46,6 @@ const myLibrary = [
 	new Book("In Our Likeness: A Novel", "Bryan VanDyke", 224, false),
 ];
 
-function Book(title, author, pages, read = false) {
-	(this.title = title),
-	(this.author = author),
-	(this.pages = pages),
-	(this.read = read);
-}
-
 function displayBooks() {
 	bookDisplay.innerHTML = "";
 	for (const [index, book] of myLibrary.entries()) {
@@ -56,7 +57,7 @@ function displayBooks() {
                                     <div class="buttons">
                                         <img src="./icons/delete.svg" height="30px" onclick="deleteBook(${index})"/>
                                         <img src="./icons/${read ? "read.svg" : "notread.svg"}" height="30px" 
-                                                                                onclick="markRead(${index})"/>
+										onclick="markRead(${index})"/>
                                     </div>
                                   </div>`;
 	}
@@ -73,9 +74,9 @@ function markRead(index) {
 }
 
 function addBookToLibrary() {
-    let newBook = new Book(title.value, author.value, pagecount.value)
-    myLibrary.push(newBook)
-    displayBooks();
+	let newBook = new Book(title.value, author.value, pagecount.value);
+	myLibrary.push(newBook);
+	displayBooks();
 }
 
 displayBooks();
