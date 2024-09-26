@@ -78,6 +78,10 @@ form {
     justify-content: center;
 }
 
+input {
+	width: 100%;
+}
+
 button {
     width: 150px;
     margin-top: 10px;
@@ -122,4 +126,12 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.title-error, .author-error, .pagecount-error {
+	display: inline-block;
+	min-height: 20px;
+	padding: 5px;
+	font-size: 0.75rem;
+	color: rgba(255, 0, 0, 0.50);
 }

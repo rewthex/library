@@ -23,15 +23,22 @@
 					alt="add book"
 				/>
 				<dialog id="dialog">
-					<form>
-						<label for="title">Title</label>
-						<input type="text" name="title" id="title" required />
-
-						<label for="author">Author</label>
-						<input type="text" name="author" id="author" required />
-
-						<label for="pagecount">Page Count</label>
-						<input type="number" name="pagecount" id="pagecount" required />
+					<form class="book-form">
+						<div class="form-group">
+							<label for="title">Title</label>
+							<input type="text" name="title" id="title" minlength="5" />
+							<span class="title-error"></span>
+						</div>
+						<div class="form-group">
+							<label for="author">Author</label>
+							<input type="text" name="author" id="author" minlength="5" />
+							<span class="author-error"></span>
+						</div>
+						<div class="form-group">
+							<label for="pagecount">Page Count</label>
+							<input type="number" name="pagecount" id="pagecount" required />
+							<span class="pagecount-error"></span>
+						</div>
 
 						<button class="add-book">Add Book</button>
 					</form>
